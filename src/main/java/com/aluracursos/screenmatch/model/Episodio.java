@@ -10,17 +10,17 @@ public class Episodio {
     private Double evaluacion;
     private LocalDate fechaDeLanzamiento;
 
-    public Episodio(Integer numero, DatosEpisodio datosEpisodio) {
+    public Episodio(Integer numero, DatosEpisodio d) {
         this.temporada = numero;
-        this.titulo = datosEpisodio.titulo();
-        this.numeroEpisodio = datosEpisodio.numeroEpisodio();
+        this.titulo = d.titulo();
+        this.numeroEpisodio = d.numeroEpisodio();
         try{
-            this.evaluacion = Double.valueOf(datosEpisodio.evaluacion());
+            this.evaluacion = Double.valueOf(d.evaluacion());
         }catch (NumberFormatException e){
             this.evaluacion = 0.0;
         }
         try{
-            this.fechaDeLanzamiento = LocalDate.parse(datosEpisodio.fechaDeLanzamiento());
+            this.fechaDeLanzamiento = LocalDate.parse(d.fechaDeLanzamiento());
         } catch (DateTimeParseException e){
             this.fechaDeLanzamiento = null;
         }
@@ -71,9 +71,9 @@ public class Episodio {
     public String toString() {
         return
                 "temporada=" + temporada +
-                        ", titulo='" + titulo + '\'' +
-                        ", numeroEpisodio=" + numeroEpisodio +
-                        ", evaluacion=" + evaluacion +
-                        ", fechaDeLanzamiento=" + fechaDeLanzamiento;
+                ", titulo='" + titulo + '\'' +
+                ", numeroEpisodio=" + numeroEpisodio +
+                ", evaluacion=" + evaluacion +
+                ", fechaDeLanzamiento=" + fechaDeLanzamiento;
     }
 }
